@@ -6,5 +6,5 @@
       }
     }
   ], "react"],
-  "plugins": []
+  "plugins": ["jsx-control-statements"]
 }
