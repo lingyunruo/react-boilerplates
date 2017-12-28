@@ -2,10 +2,9 @@ const webpack = require('webpack');
 const path = require('path');
 const fs = require('fs');
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
-const CommonsChunkPlugin = webpack.optimize.CommonsChunkPlugin;
 const HappyPack = require('happypack');
 
-const entryDir = path.join(__dirname, './src/entry');
+const entryDir = path.join(__dirname, './entry/');
 
 function getEntry(filepath) {
 
@@ -41,10 +40,10 @@ module.exports = {
 		        return isNpmModule;
             }
         }, {
-            test: /\.scss$/,
+            test: /\.less$/,
             use: ExtractTextPlugin.extract({
                 fallback: "style-loader",
-                use: ["css-loader", "sass-loader"]
+                use: ["css-loader", "less-loader"]
             })
         }, {
         	test: /\.(png|jpg|gif)$/,
@@ -56,6 +55,10 @@ module.exports = {
 	        }]
         }]
     },
+	devServer: {
+    	contentBase: path.join(__dirname, './'),
+		port: 9000
+	},
 	resolve: {
 
     },
