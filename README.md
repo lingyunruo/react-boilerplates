@@ -1,6 +1,8 @@
-npm run watch 编译
+npm run dll 生成dll文件（只第一次运行项目执行该命令）
 
-npm run server  启动服务器
+npm start  启动服务器并监听文件
+
+npm run watch 监听文件改变不启动服务器
 
 
 ### 目录结构说明

@@ -11,7 +11,7 @@ class BannerImage extends Component {
 	render() {
 		return (
 			<div>
-				hello world
+				hello world 我是谁 我是凌云呀
 			</div>
 		);
 	}

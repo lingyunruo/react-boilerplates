@@ -5,7 +5,7 @@ const ExtractTextPlugin = require("extract-text-webpack-plugin");
 const HappyPack = require('happypack');
 // const HtmlWebpackPlugin = require('html-webpack-plugin');
 
-const entryDir = path.join(__dirname, './entry/');
+const entryDir = path.join(__dirname, '../entry/');
 
 function getEntry(filepath) {
 
@@ -29,9 +29,10 @@ function getEntry(filepath) {
 module.exports = {
     entry: getEntry(entryDir),
     output: {
-        path: path.resolve(__dirname, './dist'),
+        path: path.resolve(__dirname, '../dist'),
         filename: '[name].js'
     },
+	watch: true,
     module: {
         rules: [{
             test: /\.(js|jsx)$/,
@@ -56,16 +57,6 @@ module.exports = {
 	        }]
         }]
     },
-	devServer: {
-    	contentBase: path.join(__dirname, './'),
-		port: 9000,
-		hot: true,
-		watchContentBase: true,
-		overlay: true,
-		watchOptions: {
-    		poll: true
-		}
-	},
 	resolve: {
 
     },
@@ -76,7 +67,7 @@ module.exports = {
 		    /**
 		     * 在这里引入 manifest 文件
 		     */
-		    manifest: require('./dist/vendor-manifest.json')
+		    manifest: require('../dist/vendor-manifest.json')
 	    }),
 	    new HappyPack({
 		    loaders: ['babel-loader?presets[]=env']
