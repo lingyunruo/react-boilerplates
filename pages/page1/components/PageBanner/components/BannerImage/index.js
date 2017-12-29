@@ -10,7 +10,9 @@ class BannerImage extends Component {
 
 	render() {
 		return (
-			<div></div>
+			<div>
+				hello world
+			</div>
 		);
 	}
 }

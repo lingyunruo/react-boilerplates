@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "watch": "webpack --config ./webpack.dll.config.js && webpack --watch",
-    "server": "webpack-dev-server"
+    "server": "webpack-dev-server",
+    "webpack": "webpack"
   },
   "author": "",
   "license": "ISC",
@@ -20,6 +21,7 @@
     "extract-text-webpack-plugin": "^3.0.0",
     "file-loader": "^1.1.6",
     "happypack": "^4.0.0-beta.5",
+    "html-webpack-plugin": "^2.30.1",
     "jsx-control-statements": "^3.2.6",
     "less": "^2.7.3",
     "less-loader": "^4.0.5",

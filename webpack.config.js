@@ -3,6 +3,7 @@ const path = require('path');
 const fs = require('fs');
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
 const HappyPack = require('happypack');
+// const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 const entryDir = path.join(__dirname, './entry/');
 
@@ -57,14 +58,19 @@ module.exports = {
     },
 	devServer: {
     	contentBase: path.join(__dirname, './'),
-		port: 9000
+		port: 9000,
+		hot: true,
+		watchContentBase: true,
+		overlay: true,
+		watchOptions: {
+    		poll: true
+		}
 	},
 	resolve: {
 
     },
     plugins: [
         new ExtractTextPlugin("[name].css"),
-	    // new CommonsChunkPlugin('common.js', ['index']),
 	    new webpack.DllReferencePlugin({
 		    context: __dirname,
 		    /**
@@ -74,6 +80,6 @@ module.exports = {
 	    }),
 	    new HappyPack({
 		    loaders: ['babel-loader?presets[]=env']
-	    })
+	    }),
     ]
 };

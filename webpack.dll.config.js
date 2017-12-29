@@ -3,7 +3,7 @@ const webpack = require('webpack');
 
 module.exports = {
 	entry: {
-		vendor: ['react', 'react-dom']
+		vendor: ['react', 'react-dom', 'redux', 'react-redux']
 	},
 	output: {
 		path: path.join(__dirname, 'dist'),

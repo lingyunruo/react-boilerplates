@@ -9,6 +9,7 @@ import reducer from '../pages/page1/reducers';
 
 import Home from '../pages/page1/container';
 
+
 const store = createStore(reducer);
 
 
