@@ -1,4 +1,4 @@
 {
   "presets": ["env", "react", "stage-3"],
-  "plugins": ["jsx-control-statements"]
+  "plugins": ["transform-class-properties", "jsx-control-statements"]
 }
