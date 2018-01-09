@@ -27,7 +27,7 @@ function getEntry(filepath) {
 }
 
 module.exports = {
-    entry: getEntry(entryDir),
+    entry: getEntry(),
     output: {
         path: path.resolve(__dirname, '../dist'),
         filename: '[name].js'
@@ -48,7 +48,7 @@ module.exports = {
                 use: ["css-loader", "less-loader"]
             })
         }, {
-        	test: /\.(png|jpg|gif)$/,
+        	test: /\.(png|jpg|gif|eot|svg|ttf|woff)$/,
 	        use: [{
         		loader: 'url-loader',
 		        options: {
@@ -58,8 +58,8 @@ module.exports = {
         }]
     },
 	resolve: {
-
-    },
+		extensions: ['.jsx', '.js']
+	},
     plugins: [
         new ExtractTextPlugin("[name].css"),
 	    new webpack.DllReferencePlugin({
@@ -70,7 +70,7 @@ module.exports = {
 		    manifest: require('../dist/vendor-manifest.json')
 	    }),
 	    new HappyPack({
-		    loaders: ['babel-loader?presets[]=env']
+		    loaders: ['babel-loader?presets[]=env,presets[]=react,presets[]=stage-0']
 	    }),
     ]
 };
